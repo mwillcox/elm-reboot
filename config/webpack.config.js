@@ -41,7 +41,15 @@ var config = {
       chunks: false,
       modules: false,
       assets: true
-    })]
+    })],
+    
+  module: {
+    loaders: [{
+      test: /\.elm$/,
+      exclude: [/elm-stuff/, /node_modules/],
+      loader: 'elm-hot!elm-webpack?verbose=true&warn=true'
+    }]
+  }
 };
 
 if (production) {
